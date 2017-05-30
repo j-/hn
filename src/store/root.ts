@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import * as stories from './stories';
 
 export default combineReducers({
-  noop: (state = null) => state,
+  stories: stories.default,
 });
