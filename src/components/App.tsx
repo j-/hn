@@ -1,4 +1,5 @@
 import * as React from 'react';
+import FrontPage from '../containers/FrontPage';
 import './App.css';
 
 const logo = require('./logo.svg');
@@ -14,6 +15,9 @@ class App extends React.Component<{}, null> {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <div>
+          <FrontPage />
+        </div>
       </div>
     );
   }

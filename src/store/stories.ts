@@ -12,3 +12,7 @@ export default function storiesReducer (state: ReducerState = DEFAULT_STATE, act
 
   return state;
 }
+
+export function getStoryIds (state: ReducerState): number[] {
+  return state;
+}
