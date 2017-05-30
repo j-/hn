@@ -1,6 +1,6 @@
 import { Action, Dispatch } from 'redux';
 import { Item } from '../types';
-import { getItem, getBestStoryIds } from '../api';
+import { getItem, getBestStoryIds, getTopStoryIds } from '../api';
 
 export interface SetItem extends Action {
   type: 'SET_ITEM';
@@ -69,6 +69,40 @@ export function fetchBestStories () {
     const storyIds = await getBestStoryIds();
     dispatch<SetBestStoryIds>({
       type: 'SET_BEST_STORY_IDS',
+      payload: {
+        storyIds,
+      },
+    });
+  };
+}
+
+export interface SetTopStoryIds extends Action {
+  type: 'SET_TOP_STORY_IDS';
+  payload: {
+    storyIds: number[];
+  };
+}
+
+export function isSetTopStoryIdsAction (action: Action): action is SetTopStoryIds {
+  return action.type === 'SET_TOP_STORY_IDS';
+}
+
+export interface FetchTopStoryIds extends Action {
+  type: 'FETCH_TOP_STORY_IDS';
+}
+
+export function isFetchTopStoryIdsAction (action: Action): action is FetchTopStoryIds {
+  return action.type === 'FETCH_TOP_STORY_IDS';
+}
+
+export function fetchTopStories () {
+  return async function (dispatch: Dispatch<FetchTopStoryIds | SetTopStoryIds>) {
+    dispatch<FetchTopStoryIds>({
+      type: 'FETCH_TOP_STORY_IDS',
+    });
+    const storyIds = await getTopStoryIds();
+    dispatch<SetTopStoryIds>({
+      type: 'SET_TOP_STORY_IDS',
       payload: {
         storyIds,
       },

@@ -1,18 +1,21 @@
-import { Action } from 'redux';
-import { isSetBestStoryIdsAction } from './actions';
+import { combineReducers } from 'redux';
+import * as best from './stories-best';
+import * as top from './stories-top';
 
-export type ReducerState = number[];
-
-const DEFAULT_STATE: ReducerState = [];
-
-export default function storiesReducer (state: ReducerState = DEFAULT_STATE, action: Action): ReducerState {
-  if (isSetBestStoryIdsAction(action)) {
-    return action.payload.storyIds;
-  }
-
-  return state;
+export interface ReducerState {
+  best: best.ReducerState;
+  top: top.ReducerState;
 }
 
-export function getStoryIds (state: ReducerState): number[] {
-  return state;
+export default combineReducers<ReducerState>({
+  best: best.default,
+  top: top.default,
+});
+
+export function getBestStoryIds (state: ReducerState) {
+  return best.getBestStoryIds(state.best);
+}
+
+export function getTopStoryIds (state: ReducerState) {
+  return top.getTopStoryIds(state.top);
 }

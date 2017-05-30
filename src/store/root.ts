@@ -9,6 +9,10 @@ export default combineReducers<ReducerState>({
   stories: stories.default,
 });
 
-export function getStoryIds (state: ReducerState): number[] {
-  return stories.getStoryIds(state.stories);
+export function getBestStoryIds (state: ReducerState): number[] {
+  return stories.getBestStoryIds(state.stories);
+}
+
+export function getTopStoryIds (state: ReducerState): number[] {
+  return stories.getTopStoryIds(state.stories);
 }
