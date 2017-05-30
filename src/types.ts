@@ -16,6 +16,10 @@ export interface Story extends Item {
   url: string;
 }
 
+export function itemIsStory (item: Item): item is Story {
+  return item.type === 'story';
+}
+
 export interface Comment extends Item {
   by: string;
   kids: number[];
@@ -23,6 +27,10 @@ export interface Comment extends Item {
   text: string;
   time: number;
   type: 'comment';
+}
+
+export function itemIsComment (item: Item): item is Comment {
+  return item.type === 'comment';
 }
 
 export interface Job extends Item {
@@ -33,6 +41,10 @@ export interface Job extends Item {
   title: string;
   type: 'job';
   url: string;
+}
+
+export function itemIsJob (item: Item): item is Job {
+  return item.type === 'job';
 }
 
 export interface Poll extends Item {
@@ -47,6 +59,10 @@ export interface Poll extends Item {
   type: 'poll';
 }
 
+export function itemIsPoll (item: Item): item is Poll {
+  return item.type === 'poll';
+}
+
 export interface Pollopt extends Item {
   by: string;
   poll: number;
@@ -54,6 +70,10 @@ export interface Pollopt extends Item {
   text: string;
   time: number;
   type: 'pollopt';
+}
+
+export function itemIsPollopt (item: Item): item is Pollopt {
+  return item.type === 'pollopt';
 }
 
 export interface User {
