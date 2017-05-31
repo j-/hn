@@ -27,15 +27,14 @@ export default class StoryComponent extends React.Component<Props, {}> {
   private renderDomain () {
     const { story } = this.props;
     const { url } = story;
-    if (url) {
-      return (
-        <span className="Story-domain">
-          <Domain url={url} />
-        </span>
-      );
-    } else {
+    if (!url) {
       return null;
     }
+    return (
+      <span className="Story-domain">
+        <Domain url={url} />
+      </span>
+    );
   }
 
   private renderDetails () {
