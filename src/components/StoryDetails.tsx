@@ -13,6 +13,7 @@ export default class StoryDetails extends React.Component<Props, {}> {
   render () {
     const { story } = this.props;
     const { id, score, by, kids, time } = story;
+    const points = score === 1 ? 'point' : 'points';
     const count = kids ? kids.length : 0;
     const user = (
       <span className="StoryDetails-author">
@@ -27,7 +28,7 @@ export default class StoryDetails extends React.Component<Props, {}> {
     const ago = humanizeTime(time * 1000);
     return (
       <div className="StoryDetails">
-        {score} points by {user} {ago} ago | {comments}
+        {score} {points} by {user} {ago} ago | {comments}
       </div>
     );
   }
