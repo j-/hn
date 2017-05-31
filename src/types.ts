@@ -1,7 +1,7 @@
 export type ItemType = 'job' | 'story' | 'comment' | 'poll' | 'pollopt';
 
 export interface Item {
-  id: string;
+  id: number;
   type: ItemType;
 }
 
