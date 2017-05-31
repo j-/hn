@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@types/react-redux": "^4.4.40",
+    "gh-pages": "^1.0.0",
     "react-redux": "^5.0.5",
     "react-scripts-ts": "2.2.0",
     "redux": "^3.6.0",
@@ -22,6 +23,20 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
-  }
+    "eject": "react-scripts-ts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "description": "Hacker News client",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/hn.git"
+  },
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/hn/issues"
+  },
+  "homepage": "https://skeoh.com/hn"
 }
