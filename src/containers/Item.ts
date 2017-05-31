@@ -16,7 +16,7 @@ interface OwnProps {
 
 const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState, ownProps: OwnProps) => ({
   item: getItemById(state, ownProps.id),
-  isLoading: isItemLoading(state, ownProps.id),
+  isLoading: isItemLoading(state, ownProps.id) && !getItemById(state, ownProps.id),
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
