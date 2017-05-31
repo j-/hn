@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Item, itemIsStory } from '../types';
+import { Item, itemIsStory, itemIsJob } from '../types';
 import StoryComponent from './Story';
+import JobComponent from './Job';
 
 export interface Props {
   item: Item;
@@ -16,6 +17,10 @@ export default class ItemComponent extends React.Component<Props, {}> {
 
     if (itemIsStory(item)) {
       return <StoryComponent story={item} />;
+    }
+
+    if (itemIsJob(item)) {
+      return <JobComponent job={item} />;
     }
 
     return null;
