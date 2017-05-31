@@ -1,10 +1,11 @@
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
 import { Item } from '../types';
 import ItemComponent, { Props as ItemProps } from '../components/Item';
-import { ReducerState, getItemById } from '../store/root';
+import { ReducerState, getItemById, isItemLoading } from '../store/root';
 
 interface StateProps {
   item: Item;
+  isLoading: boolean;
 }
 
 interface DispatchProps {}
@@ -15,6 +16,7 @@ interface OwnProps {
 
 const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState, ownProps: OwnProps) => ({
   item: getItemById(state, ownProps.id),
+  isLoading: isItemLoading(state, ownProps.id),
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};

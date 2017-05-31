@@ -3,14 +3,24 @@ import { Item, itemIsStory, itemIsJob, itemIsAsk } from '../types';
 import AskComponent from './Ask';
 import JobComponent from './Job';
 import StoryComponent from './Story';
+import './Item.css';
 
 export interface Props extends React.Props<{}> {
   item: Item;
+  isLoading: boolean;
 }
 
 export default class ItemComponent extends React.Component<Props, {}> {
+  static defaultProps: Partial<Props> = {
+    isLoading: false,
+  };
+
   render () {
-    const { item } = this.props;
+    const { item, isLoading } = this.props;
+
+    if (isLoading) {
+      return <div className="Item Item-is-loading">Loading&hellip;</div>;
+    }
 
     if (item === null) {
       return null;
