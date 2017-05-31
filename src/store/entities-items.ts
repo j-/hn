@@ -17,7 +17,7 @@ export default function itemsReducer (state: ReducerState = DEFAULT_STATE, actio
   }
 
   return state;
-};
+}
 
 export function getItemById (state: ReducerState, id: number) {
   return state[id] || null;
