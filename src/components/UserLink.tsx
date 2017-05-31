@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './UserLink.css';
 
 export interface Props extends React.Props<{}> {
   id: string;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './CommentsLink.css';
 
 export interface Props extends React.Props<{}> {
   itemId: number;

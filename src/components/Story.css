@@ -3,6 +3,16 @@
   font-size: smaller;
 }
 
+.Story-domain a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.Story-domain a:hover {
+  text-decoration: underline;
+}
+
 .Story-details {
+  color: #444;
   font-size: smaller;
 }

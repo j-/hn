@@ -3,6 +3,10 @@
   text-decoration: none;
 }
 
+.ItemTitle:hover {
+  text-decoration: underline;
+}
+
 .ItemTitle:visited {
   color: #888;
 }

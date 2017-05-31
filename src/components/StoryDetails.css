@@ -1,4 +1,8 @@
-.StoryDetails-author a {
+.StoryDetails a {
   color: inherit;
   text-decoration: none;
+}
+
+.StoryDetails a:hover {
+  text-decoration: underline;
 }

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { parse } from 'url';
-import './Domain.css';
 
 export interface Props extends React.Props<{}> {
   url: string;
