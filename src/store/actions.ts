@@ -73,6 +73,9 @@ export function fetchBestStories () {
         storyIds,
       },
     });
+    for (const storyId of storyIds) {
+      fetchItem(storyId)(dispatch);
+    }
   };
 }
 
@@ -107,5 +110,8 @@ export function fetchTopStories () {
         storyIds,
       },
     });
+    for (const storyId of storyIds) {
+      fetchItem(storyId)(dispatch);
+    }
   };
 }
