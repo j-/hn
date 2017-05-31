@@ -10,7 +10,7 @@ import { fetchTopStories } from './store/actions';
 const store = createStore();
 
 store.dispatch(
-  fetchTopStories()
+  fetchTopStories(0, Infinity)
 );
 
 ReactDOM.render(

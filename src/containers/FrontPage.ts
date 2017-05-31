@@ -12,6 +12,7 @@ interface OwnProps {}
 
 const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState) => ({
   itemIds: getTopStoryIds(state),
+  limit: Infinity,
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
