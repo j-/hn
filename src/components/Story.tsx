@@ -12,16 +12,37 @@ export interface Props extends React.Props<{}> {
 export default class StoryComponent extends React.Component<Props, {}> {
   render () {
     const { story } = this.props;
+    const domain = this.renderDomain();
+    const details = this.renderDetails();
     return (
       <div className="Story">
         <ItemTitle title={story.title} url={story.url} />
         {' '}
+        {domain}
+        {details}
+      </div>
+    );
+  }
+
+  private renderDomain () {
+    const { story } = this.props;
+    const { url } = story;
+    if (url) {
+      return (
         <span className="Story-domain">
-          <Domain url={story.url} />
+          <Domain url={url} />
         </span>
-        <div className="Story-details">
-          <StoryDetails story={story} />
-        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
+  private renderDetails () {
+    const { story } = this.props;
+    return (
+      <div className="Story-details">
+        <StoryDetails story={story} />
       </div>
     );
   }

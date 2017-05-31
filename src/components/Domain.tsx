@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { parse } from 'url';
 import './Domain.css';
 
 export interface Props extends React.Props<{}> {
@@ -7,15 +8,20 @@ export interface Props extends React.Props<{}> {
 
 export default class Domain extends React.Component<Props, {}> {
   render () {
-    const url = 'http://www.skeoh.com/';
-    const text = 'skeoh.com';
+    const { url } = this.props;
+
+    if (!url) {
+      return null;
+    }
+
+    const { hostname } = parse(url);
     const target = '_blank';
     const rel = 'noopener noreferrer';
     const link = (
       <a
         className="Domain-link"
         href={url}
-        children={text}
+        children={hostname}
         target={target}
         rel={rel}
       />

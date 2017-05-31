@@ -3,7 +3,7 @@ import './ItemTitle.css';
 
 export interface Props extends React.Props<{}> {
   title: string;
-  url: string;
+  url?: string;
 }
 
 export default class StoryComponent extends React.Component<Props, {}> {

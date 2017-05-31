@@ -13,7 +13,7 @@ export interface Story extends Item {
   time: number;
   title: string;
   type: 'story';
-  url: string;
+  url?: string;
 }
 
 export function itemIsStory (item: Item): item is Story {
