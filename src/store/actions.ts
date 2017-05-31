@@ -61,7 +61,7 @@ export function isFetchBestStoryIdsAction (action: Action): action is FetchBestS
   return action.type === 'FETCH_BEST_STORY_IDS';
 }
 
-export function fetchBestStories (itemsToFetch: number = Infinity) {
+export function fetchBestStories (offset: number = 0, limit: number = 25) {
   return async function (dispatch: Dispatch<FetchBestStoryIds | SetBestStoryIds>) {
     dispatch<FetchBestStoryIds>({
       type: 'FETCH_BEST_STORY_IDS',
@@ -73,7 +73,7 @@ export function fetchBestStories (itemsToFetch: number = Infinity) {
         storyIds,
       },
     });
-    for (const storyId of storyIds.slice(0, itemsToFetch)) {
+    for (const storyId of storyIds.slice(offset, offset + limit)) {
       fetchItem(storyId)(dispatch);
     }
   };
@@ -98,7 +98,7 @@ export function isFetchTopStoryIdsAction (action: Action): action is FetchTopSto
   return action.type === 'FETCH_TOP_STORY_IDS';
 }
 
-export function fetchTopStories (itemsToFetch: number = Infinity) {
+export function fetchTopStories (offset: number = 0, limit: number = 25) {
   return async function (dispatch: Dispatch<FetchTopStoryIds | SetTopStoryIds>) {
     dispatch<FetchTopStoryIds>({
       type: 'FETCH_TOP_STORY_IDS',
@@ -110,7 +110,7 @@ export function fetchTopStories (itemsToFetch: number = Infinity) {
         storyIds,
       },
     });
-    for (const storyId of storyIds.slice(0, itemsToFetch)) {
+    for (const storyId of storyIds.slice(offset, offset + limit)) {
       fetchItem(storyId)(dispatch);
     }
   };
