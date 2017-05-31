@@ -2,6 +2,9 @@ import { Action, Dispatch } from 'redux';
 import { Item } from '../types';
 import { getItem, getBestStoryIds, getTopStoryIds } from '../api';
 
+/** Maximum number of items to fetch after getting a list of stories */
+const ITEMS_TO_FETCH = 5;
+
 export interface SetItem extends Action {
   type: 'SET_ITEM';
   payload: {
@@ -73,7 +76,7 @@ export function fetchBestStories () {
         storyIds,
       },
     });
-    for (const storyId of storyIds) {
+    for (const storyId of storyIds.slice(0, ITEMS_TO_FETCH)) {
       fetchItem(storyId)(dispatch);
     }
   };
@@ -110,7 +113,7 @@ export function fetchTopStories () {
         storyIds,
       },
     });
-    for (const storyId of storyIds) {
+    for (const storyId of storyIds.slice(0, ITEMS_TO_FETCH)) {
       fetchItem(storyId)(dispatch);
     }
   };
