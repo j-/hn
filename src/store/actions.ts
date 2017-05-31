@@ -2,9 +2,6 @@ import { Action, Dispatch } from 'redux';
 import { Item } from '../types';
 import { getItem, getBestStoryIds, getTopStoryIds } from '../api';
 
-/** Maximum number of items to fetch after getting a list of stories */
-const ITEMS_TO_FETCH = 5;
-
 export interface SetItem extends Action {
   type: 'SET_ITEM';
   payload: {
@@ -64,7 +61,7 @@ export function isFetchBestStoryIdsAction (action: Action): action is FetchBestS
   return action.type === 'FETCH_BEST_STORY_IDS';
 }
 
-export function fetchBestStories () {
+export function fetchBestStories (itemsToFetch: number = Infinity) {
   return async function (dispatch: Dispatch<FetchBestStoryIds | SetBestStoryIds>) {
     dispatch<FetchBestStoryIds>({
       type: 'FETCH_BEST_STORY_IDS',
@@ -76,7 +73,7 @@ export function fetchBestStories () {
         storyIds,
       },
     });
-    for (const storyId of storyIds.slice(0, ITEMS_TO_FETCH)) {
+    for (const storyId of storyIds.slice(0, itemsToFetch)) {
       fetchItem(storyId)(dispatch);
     }
   };
@@ -101,7 +98,7 @@ export function isFetchTopStoryIdsAction (action: Action): action is FetchTopSto
   return action.type === 'FETCH_TOP_STORY_IDS';
 }
 
-export function fetchTopStories () {
+export function fetchTopStories (itemsToFetch: number = Infinity) {
   return async function (dispatch: Dispatch<FetchTopStoryIds | SetTopStoryIds>) {
     dispatch<FetchTopStoryIds>({
       type: 'FETCH_TOP_STORY_IDS',
@@ -113,7 +110,7 @@ export function fetchTopStories () {
         storyIds,
       },
     });
-    for (const storyId of storyIds.slice(0, ITEMS_TO_FETCH)) {
+    for (const storyId of storyIds.slice(0, itemsToFetch)) {
       fetchItem(storyId)(dispatch);
     }
   };
