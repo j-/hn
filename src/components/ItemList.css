@@ -1,0 +1,10 @@
+.ItemList {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.ItemList-item {
+  display: block;
+  margin: 0.25em;
+  padding: 0.25em;
+}

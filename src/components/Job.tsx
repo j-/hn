@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Job } from '../types';
+import ItemTitle from './ItemTitle';
 
 export interface Props {
   job: Job;
@@ -8,10 +9,9 @@ export interface Props {
 export default class JobComponent extends React.Component<Props, {}> {
   render () {
     const { job } = this.props;
-    const { title } = job;
     return (
       <div className="Job">
-        <strong>{title}</strong>
+        <ItemTitle title={job.title} url={job.url} />
       </div>
     );
   }

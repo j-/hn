@@ -1,9 +1,9 @@
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
-import StoryList from '../components/StoryList';
+import ItemList from '../components/ItemList';
 import { ReducerState, getTopStoryIds } from '../store/root';
 
 interface StateProps {
-  storyIds: number[];
+  itemIds: number[];
 }
 
 interface DispatchProps {}
@@ -11,7 +11,7 @@ interface DispatchProps {}
 interface OwnProps {}
 
 const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState) => ({
-  storyIds: getTopStoryIds(state),
+  itemIds: getTopStoryIds(state),
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
@@ -19,4 +19,4 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StoryList);
+)(ItemList);

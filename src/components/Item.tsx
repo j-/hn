@@ -3,7 +3,7 @@ import { Item, itemIsStory, itemIsJob } from '../types';
 import StoryComponent from './Story';
 import JobComponent from './Job';
 
-export interface Props {
+export interface Props extends React.Props<{}> {
   item: Item;
 }
 

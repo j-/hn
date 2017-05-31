@@ -8,7 +8,7 @@ export interface Item {
 export interface Story extends Item {
   by: string;
   descendants: number;
-  kids: number[];
+  kids?: number[];
   score: number;
   time: number;
   title: string;
