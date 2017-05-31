@@ -20,6 +20,18 @@ export function itemIsStory (item: Item): item is Story {
   return item.type === 'story';
 }
 
+export interface Ask extends Story {
+  url: undefined;
+}
+
+export function storyIsAsk (story: Story): story is Ask {
+  return story.url == null;
+}
+
+export function itemIsAsk (item: Item): item is Ask {
+  return itemIsStory(item) && storyIsAsk(item);
+}
+
 export interface Comment extends Item {
   by: string;
   kids: number[];
