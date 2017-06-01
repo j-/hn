@@ -1,4 +1,4 @@
-import { Item } from './types';
+import { Item, User } from './types';
 
 export async function getItem (id: number): Promise<Item> {
   const res = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
@@ -32,5 +32,10 @@ export async function getJobStoryIds (): Promise<number[]> {
 
 export async function getShowStoryIds (): Promise<number[]> {
   const res = await fetch('https://hacker-news.firebaseio.com/v0/showstories.json');
+  return res.json();
+}
+
+export async function getUser (id: string): Promise<User> {
+  const res = await fetch(`https://hacker-news.firebaseio.com/v0/user/${id}.json`);
   return res.json();
 }
