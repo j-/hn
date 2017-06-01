@@ -20,3 +20,9 @@ ReactDOM.render(
   document.getElementById('root') as HTMLElement
 );
 registerServiceWorker();
+
+// App is no longer loading
+const appLoading = document.getElementById('app-loading');
+if (appLoading) {
+  appLoading.remove();
+}
