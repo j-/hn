@@ -1,12 +1,19 @@
 import * as React from 'react';
-import FrontPage from '../containers/FrontPage';
+import { HashRouter as Router, Route } from 'react-router-dom';
+import FrontPageRoute from '../routes/FrontPage';
 
 class App extends React.Component<{}, null> {
   render() {
     return (
-      <div className="App">
-        <FrontPage />
-      </div>
+      <Router>
+        <div className="App">
+          <Route
+            exact={true}
+            path="/"
+            component={(props) => <FrontPageRoute {...props} />}
+          />
+        </div>
+      </Router>
     );
   }
 }
