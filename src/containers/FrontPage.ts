@@ -1,5 +1,5 @@
 import { connect, MapStateToProps, MapDispatchToProps } from 'react-redux';
-import ItemList from '../components/ItemList';
+import ItemPage from '../components/ItemPage';
 import { ReducerState, getTopStoryIds } from '../store/root';
 
 interface StateProps {
@@ -12,7 +12,6 @@ interface OwnProps {}
 
 const mapStateToProps: MapStateToProps<StateProps, OwnProps> = (state: ReducerState) => ({
   itemIds: getTopStoryIds(state),
-  limit: Infinity,
 });
 
 const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
@@ -20,4 +19,4 @@ const mapDispatchToProps: MapDispatchToProps<DispatchProps, OwnProps> = {};
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ItemList);
+)(ItemPage);

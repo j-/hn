@@ -61,7 +61,7 @@ export function isFetchBestStoryIdsAction (action: Action): action is FetchBestS
   return action.type === 'FETCH_BEST_STORY_IDS';
 }
 
-export function fetchBestStories (offset: number = 0, limit: number = 25) {
+export function fetchBestStories (offset: number = 0, limit: number = 30) {
   return async function (dispatch: Dispatch<FetchBestStoryIds | SetBestStoryIds>) {
     dispatch<FetchBestStoryIds>({
       type: 'FETCH_BEST_STORY_IDS',
@@ -98,7 +98,7 @@ export function isFetchTopStoryIdsAction (action: Action): action is FetchTopSto
   return action.type === 'FETCH_TOP_STORY_IDS';
 }
 
-export function fetchTopStories (offset: number = 0, limit: number = 25) {
+export function fetchTopStories (offset: number = 0, limit: number = 30) {
   return async function (dispatch: Dispatch<FetchTopStoryIds | SetTopStoryIds>) {
     dispatch<FetchTopStoryIds>({
       type: 'FETCH_TOP_STORY_IDS',

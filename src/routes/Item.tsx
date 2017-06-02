@@ -12,7 +12,7 @@ export interface Props extends RouteProps {
 export default class ItemRoute extends React.Component<Props, {}> {
   static contextTypes = {
     store: PropTypes.object,
-  }
+  };
 
   componentDidMount () {
     const { store } = this.context;
