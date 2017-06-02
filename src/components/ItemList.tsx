@@ -22,6 +22,6 @@ export default class ItemList extends React.Component<Props, {}> {
         <ItemContainer id={id} />
       </li>
     ));
-    return <ul className="ItemList">{elements}</ul>;
+    return <ol className="ItemList" start={offset + 1}>{elements}</ol>;
   }
 }
