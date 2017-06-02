@@ -20,8 +20,7 @@ export default class ItemPage extends React.Component<Props, {}> {
     return (
       <ItemList
         itemIds={slice}
-        offset={offset}
-        limit={limit}
+        start={offset + 1}
       />
     );
   }
